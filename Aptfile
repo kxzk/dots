@@ -1,0 +1,13 @@
+git
+curl
+visidata
+tmux
+jq
+gh
+clangd
+stow
+xclip
+ripgrep
+clang-format
+fuse
+libfuse2

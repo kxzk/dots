@@ -1,0 +1,6 @@
+ruff
+black
+uv
+ipython
+isort
+shandy-sqlfmt
