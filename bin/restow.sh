@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages=("alacritty" "bash" "btop" "duckdb" "git" "ipython" "nvim" "tmux")
+packages=("alacritty" "bash" "btop" "duckdb" "git" "ipython" "nvim" "tmux" "xmodmap")
 
 for p in "${packages[@]}"; do
   stow -Rv "$p"

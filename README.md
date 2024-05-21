@@ -3,10 +3,14 @@
 <br>
 <br>
 
-### for pbcopy-like behavior
+### gh
 
 ```bash
-xclip -sel clip
+gh auth login
+gh config set editor nvim
+
+# in nvim
+# :Copilot setup
 ```
 
 <br>
@@ -81,6 +85,15 @@ sudo apt-get install -f
 <br>
 <br>
 
+### air (golang)
+
+```bash
+go install github.com/cosmtrek/air@latest
+```
+
+<br>
+<br>
+
 ### aws cli
 
 ```bash
@@ -115,7 +128,11 @@ cargo install eza
 ### proxyman
 
 ```bash
-https://proxyman.io/download
+# https://proxyman.io/download
+
+# adjust according to the latest version
+chmod +x Proxyman-2.14.0.AppImage
+sudo mv Proxyman-2.14.0.AppImage /usr/local/bin/proxyman
 ```
 
 <br>
@@ -124,7 +141,17 @@ https://proxyman.io/download
 ### tableplus
 
 ```bash
-https://tableplus.com/download
+# https://tableplus.com/download
+
+# Add TablePlus gpg key
+wget -qO - https://deb.tableplus.com/apt.tableplus.com.gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/tableplus-archive.gpg > /dev/null
+
+# Add TablePlus repo
+sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 tableplus main"
+
+# Install
+sudo apt update
+sudo apt install tableplus
 ```
 
 <br>
