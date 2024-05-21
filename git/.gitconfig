@@ -1,6 +1,6 @@
 [user]
-	name = kxzk
-	email = kxzk@pm.me
+	name = kadekillary
+	email = kadekillary@pm.me
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
