@@ -11,6 +11,9 @@ gh config set editor nvim
 
 # in nvim
 # :Copilot setup
+
+# for caching creds
+git config --global credential.helper cache
 ```
 
 <br>
