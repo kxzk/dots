@@ -1,4 +1,4 @@
-### ubuntu dots
+<h3 align="center">dippin dots</h3>
 
 <br>
 <br>
@@ -9,11 +9,8 @@
 gh auth login
 gh config set editor nvim
 
-# in nvim
+# nvim
 # :Copilot setup
-
-# for caching creds
-git config --global credential.helper cache
 ```
 
 <br>
