@@ -11,3 +11,4 @@ ripgrep
 clang-format
 fuse
 libfuse2
+build-essential
