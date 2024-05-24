@@ -33,7 +33,7 @@ return {
 		},
 	},
 	{ "numToStr/Comment.nvim", opts = {}, event = "VeryLazy" },
-	{ "github/copilot.vim", event = "VeryLazy" },
+	{ "github/copilot.vim" },
 	-- fuzzy finder (files, lsp, etc)
 	{
 		"nvim-telescope/telescope.nvim",

@@ -17,7 +17,7 @@ end
 
 function CompileRunCpp()
 	local filename = vim.fn.expand("%:t:r")
-	vim.cmd(string.format("!g++ %s -o %s && ./%s", vim.fn.expand("%"), filename, filename))
+	vim.cmd(string.format("!g++ -std=c++23 %s -o %s && ./%s", vim.fn.expand("%"), filename, filename))
 end
 
 local autocmds = {

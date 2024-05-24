@@ -12,6 +12,25 @@ gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode extend
 <br>
 <br>
 
+### cpp get c++23 features
+
+```bash
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install g++-12
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 60
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 60
+sudo update-alternatives --config gcc
+sudo update-alternatives --config g++
+
+# alias gcc11='sudo update-alternatives --set gcc /usr/bin/gcc-11 && sudo update-alternatives --set g++ /usr/bin/g++-11'
+# alias gcc12='sudo update-alternatives --set gcc /usr/bin/gcc-12 && sudo update-alternatives --set g++ /usr/bin/g++-12'
+```
+
+<br>
+<br>
+
 ### gh
 
 ```bash
