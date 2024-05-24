@@ -3,6 +3,15 @@
 <br>
 <br>
 
+### enable ipad monitor display
+
+```bash
+gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode extend
+```
+
+<br>
+<br>
+
 ### gh
 
 ```bash
