@@ -116,6 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# for control
+setxkbmap -option ctrl:nocaps
 
 # adding path for rust
 . "$HOME/.cargo/env"
