@@ -1,4 +1,4 @@
-<h3 align="center">dippin dots</h3>
+<h3 align="center">dots</h3>
 
 <br>
 <br>
