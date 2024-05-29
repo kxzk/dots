@@ -33,6 +33,9 @@ gh config set editor nvim
 
 # nvim
 # :Copilot setup
+
+# store creds
+git config --global credential.helper store
 ```
 
 <br>

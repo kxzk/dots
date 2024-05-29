@@ -42,4 +42,4 @@
 	find = "log --pretty='format:%Cgreen%H %Cblue%s' --name-status --grep"
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 [credential]
-	helper = cache
+	helper = store
