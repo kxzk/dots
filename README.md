@@ -3,6 +3,19 @@
 <br>
 <br>
 
+### install fira code
+
+```bash
+wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+unzip Fira_Code_v6.2.zip
+mkdir -p ~/.fonts
+cp Fira_Code_v6.2/ttf/*.ttf ~/.fonts/
+fc-cache -f -v
+
+# validate
+fc-list | grep "Fira Code"
+```
+
 ### remap caps lock to control
 
 ```bash

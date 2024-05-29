@@ -12,7 +12,9 @@ dynamic_padding = true
 history = 500
 
 [font]
-size = 18.0
+size = 16.0
+normal = { family = "Fira Code", style = "Regular" }
+bold = { family = "Fira Code", style = "Bold" }
 
 [colors]
 draw_bold_text_with_bright_colors = true
