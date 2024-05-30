@@ -1,4 +1,9 @@
-function get_tail {
+#!/bin/bash
+
+set -e
+set -x
+
+get_tail() {
     # Check if 'tailwindcss' exists in the current directory
     if [ -f tailwindcss ]; then
         rm tailwindcss
@@ -13,3 +18,5 @@ function get_tail {
     # Move and rename the binary to 'tailwindcss'
     mv tailwindcss-linux-arm64 tailwindcss
 }
+
+get_tail

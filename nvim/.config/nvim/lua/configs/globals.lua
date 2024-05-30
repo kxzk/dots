@@ -10,6 +10,7 @@ vim.cmd([[highlight EndOfBuffer guifg=#14161b]]) -- dim tilde under line number
 vim.cmd([[highlight CursorLine guibg=#1c1d23]])
 vim.cmd([[highlight CursorLineNr guifg=#2c2e33]]) -- brighter cursorline number
 vim.cmd([[highlight MsgArea guifg=#2c2e33]]) -- dim command line/message area
+vim.cmd([[highlight CopilotSuggestion guifg=#2c2e33]]) -- dim command line/message area
 -- vim.cmd([[highlight VertSplit guifg=#EBCB8B gui=None guibg=None]]) -- remove bad split coloring
 
 g.python3_host_prog = "/usr/bin/python3"
