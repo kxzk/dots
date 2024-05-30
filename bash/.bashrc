@@ -119,6 +119,9 @@ fi
 # for control
 setxkbmap -option ctrl:nocaps
 
+# for python
+export PATH="$PATH:/home/neef/.local/bin"
+
 # adding path for rust
 . "$HOME/.cargo/env"
 
