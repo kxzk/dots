@@ -10,13 +10,13 @@ get_tail() {
     fi
 
     # Download the latest tailwindcss binary for linux
-    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.3/tailwindcss-linux-arm64
+    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.3/tailwindcss-linux-x64
 
     # Make the binary executable
-    chmod +x tailwindcss-linux-arm64
+    chmod +x tailwindcss-linux-x64
 
     # Move and rename the binary to 'tailwindcss'
-    mv tailwindcss-linux-arm64 tailwindcss
+    mv tailwindcss-linux-x64 tailwindcss
 }
 
 get_tail

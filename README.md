@@ -29,10 +29,20 @@ sudo systemctl restart keyboard-setup
 <br>
 <br>
 
-### enable ipad monitor display
+### install python3.12
 
 ```bash
-gsettings set org.gnome.desktop.remote-desktop.rdp screen-share-mode extend
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update -y
+sudo apt install python3.12
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+sudo update-alternatives --config python3
+
+curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.12 get-pip.py
+
+# pip3.12 install requests
 ```
 
 <br>

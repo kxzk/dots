@@ -12,3 +12,4 @@ clang-format
 fuse
 libfuse2
 build-essential
+python3-pip
