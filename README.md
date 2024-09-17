@@ -3,18 +3,26 @@
 <br>
 <br>
 
-### install fira code
+### install
 
 ```bash
-wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
-unzip Fira_Code_v6.2.zip
-mkdir -p ~/.fonts
-cp Fira_Code_v6.2/ttf/*.ttf ~/.fonts/
-fc-cache -f -v
-
-# validate
-fc-list | grep "Fira Code"
+# Basic usage without handling comments or blank lines
+xargs sudo apt install -y < Aptfile
 ```
+
+<br>
+<br>
+
+### stow
+
+```bash
+stow -v bash
+
+stow -Rv bin -t ~/.local/bin
+```
+
+<br>
+<br>
 
 ### remap caps lock to control
 
@@ -82,6 +90,16 @@ export PATH="$PATH:/opt/nvim/"
 <br>
 <br>
 
+### uv and ruff
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+curl -LsSf https://astral.sh/ruff/install.sh | sh
+```
+
+<br>
+<br>
+
 ### nodejs
 
 ```bash
@@ -93,33 +111,15 @@ sudo apt-get install -y nodejs
 <br>
 <br>
 
-### ubuntu 22.04 for clangd
-
-```bash
-sudo apt-get install libllvm14=1:14.0.0-1ubuntu1
-```
-
-<br>
-<br>
-
 ### duckdb
 
-> https://duckdb.org/docs/installation/?version=stable&environment=cli&platform=linux&download_method=package_manager
+* [download](https://duckdb.org/docs/installation/?version=stable&environment=cli&platform=linux&download_method=direct&architecture=x86_64)
 
 ```bash
 wget https://github.com/duckdb/duckdb/releases/download/v0.10.2/duckdb_cli-linux-amd64.zip
 unzip duckdb_cli-linux-amd64.zip
 sudo mv duckdb /usr/local/bin/
 sudo chmod +x /usr/local/bin/duckdb
-```
-
-<br>
-<br>
-
-### rust
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 <br>
@@ -139,18 +139,8 @@ sudo apt-get install -f
 ### air (golang)
 
 ```bash
-go install github.com/cosmtrek/air@latest
-```
-
-<br>
-<br>
-
-### aws cli
-
-```bash
-curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+# binary will be $(go env GOPATH)/bin/air
+curl -sSfL https://raw.githubusercontent.com/air-verse/air/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
 ```
 
 <br>
@@ -159,7 +149,7 @@ sudo ./aws/install
 ### prettierd
 
 ```bash
-npm install -g @fsouza/prettierd
+sudo npm install -g @fsouza/prettierd
 ```
 
 <br>
@@ -178,6 +168,8 @@ cargo install eza
 
 ### proxyman
 
+* [download](https://proxyman.io/download)
+
 ```bash
 # https://proxyman.io/download
 
@@ -190,6 +182,8 @@ sudo mv Proxyman-2.14.0.AppImage /usr/local/bin/proxyman
 <br>
 
 ### tableplus
+
+* [download](https://tableplus.com/blog/2019/10/tableplus-linux-installation.html)
 
 ```bash
 # https://tableplus.com/download

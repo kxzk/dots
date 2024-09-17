@@ -3,38 +3,18 @@ return {
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
-				add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-				change = {
-					hl = "GitSignsChange",
-					text = "│",
-					numhl = "GitSignsChangeNr",
-					linehl = "GitSignsChangeLn",
-				},
-				delete = {
-					hl = "GitSignsDelete",
-					text = "│",
-					numhl = "GitSignsDeleteNr",
-					linehl = "GitSignsDeleteLn",
-				},
-				topdelete = {
-					hl = "GitSignsDelete",
-					text = "│",
-					numhl = "GitSignsDeleteNr",
-					linehl = "GitSignsDeleteLn",
-				},
-				changedelete = {
-					hl = "GitSignsChange",
-					text = "│",
-					numhl = "GitSignsChangeNr",
-					linehl = "GitSignsChangeLn",
-				},
-				untracked = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+				add = { text = "|" },
+				change = { text = "+" },
+				delete = { text = "×" },
+				topdelete = { text = "×" },
+				changedelete = { text = "×" },
+				untracked = { text = "¦" },
 			},
 		},
 	},
-	{ "numToStr/Comment.nvim", opts = {}, event = "VeryLazy" },
-	{ "github/copilot.vim" },
-	-- fuzzy finder (files, lsp, etc)
+	{ "github/copilot.vim", tag = "v1.38.0" },
+	{ "rizzatti/dash.vim", event = "VeryLazy" },
+	-- Fuzzy Finder (files, lsp, etc)
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -55,8 +35,8 @@ return {
 		},
 		opts = {
 			defaults = {
-				prompt_prefix = "❯❯❯ ",
-				selection_caret = "❯ ",
+				prompt_prefix = "  ",
+				selection_caret = " ",
 				entry_prefix = " ",
 				initial_mode = "insert",
 				selection_strategy = "reset",
@@ -100,16 +80,16 @@ return {
 				results_title = false,
 				preview_title = false,
 				borderchars = {
-					{ "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
-					prompt = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
-					results = { " ", "▐", "▄", "▌", "▌", "▐", "▟", "▙" },
-					preview = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+					{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+					prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+					results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+					preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 				},
 			},
 		},
 	},
 	{
-		-- highlight, edit, and navigate code
+		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
@@ -120,7 +100,7 @@ return {
 		-- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- automatically install lsps to stdpath for neovim
+			-- Automatically install LSPs to stdpath for neovim
 			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 		},
@@ -131,29 +111,51 @@ return {
 		build = "cd formatter && npm i && npm run build",
 		config = true,
 		ft = "html",
-		-- 	opts = {
-		-- 		on_save_enabled = true,
-		-- 		on_save_pattern = { "*.html" },
-		-- 	},
+		opts = {
+			on_save_enabled = true,
+			on_save_pattern = { "*.html", "*.templ" },
+		},
 	},
 	{
 		"stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "gofmt", "goimports", "golines" },
-				c = { "clang-format" },
+				go = { "goimports", "gofmt", "golines" },
 				cpp = { "clang-format" },
 				python = { "isort", "black" },
 				-- javascript = { "prettierd" },
-				-- html = { "prettierd" },
-				-- rust = { "rustfmt" },
-				sql = { "sqlfmt" },
+				html = { "prettierd" },
+				fish = { "fish_indent" },
+				rust = { "rustfmt" },
+				-- sql = { "sqlfmt" },
 				["_"] = { "trim_whitespace" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_fallback = true,
+			},
+		},
+	},
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
+		opts = {
+			-- add any opts here
+		},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below is optional, make sure to setup it properly if you have lazy=true
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
 			},
 		},
 	},
