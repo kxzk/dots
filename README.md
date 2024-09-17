@@ -68,12 +68,15 @@ git config --global credential.helper store
 
 ```bash
 # https://github.com/neovim/neovim/releases
-curl -LO https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
+./nvim.appimage
 # make sure fuse is installed
 # sudo apt install fuse libfuse2
-./nvim.appimage
-sudo mv nvim.appimage /usr/local/bin/nvim
+mkdir -p /opt/nvim
+mv nvim.appimage /opt/nvim/nvim
+# in .bashrc
+export PATH="$PATH:/opt/nvim/"
 ```
 
 <br>
