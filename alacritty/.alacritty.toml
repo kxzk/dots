@@ -31,4 +31,5 @@ hide_when_typing = true
 [keyboard]
 bindings = [
   { key = "Return", mods = "Command", action = "ToggleFullscreen" },
+  { key = "V", mods = "Control", action = "Paste" }
 ]
