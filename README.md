@@ -73,6 +73,7 @@ python3.12 get-pip.py
 ```bash
 gh auth login
 gh config set editor nvim
+gh config set pager delta
 
 # nvim
 # :Copilot setup

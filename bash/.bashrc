@@ -116,6 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Load system-wide environment variables
+if [ -f /etc/environment ]; then
+    export $(cat /etc/environment | xargs)
+fi
+
 export PATH="$PATH:/home/feyd/.local/bin"
 export PATH="$PATH:/opt/nvim"
 export PATH="$PATH:/go/bin"
@@ -124,10 +129,10 @@ export PATH="$PATH:/.atuin/bin"
 # adding path for rust
 . "$HOME/.cargo/env"
 
-# adding for correct zoxide functioning
-eval "$(zoxide init bash)"
-
 . "$HOME/.atuin/bin/env"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
+
+# adding for correct zoxide functioning
+eval "$(zoxide init bash)"
