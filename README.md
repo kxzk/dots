@@ -37,6 +37,18 @@ sudo systemctl restart keyboard-setup
 <br>
 <br>
 
+### atuin
+
+```bash
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+
+atuin login -u <username> -p <password> -k <key>
+atuin sync
+```
+
+<br>
+<br>
+
 ### install python3.12
 
 ```bash
