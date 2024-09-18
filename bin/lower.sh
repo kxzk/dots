@@ -1,3 +1,0 @@
-lower() {
-    tr '[:upper:]' '[:lower:]'
-}
