@@ -14,3 +14,4 @@ libfuse2
 build-essential
 python3-pip
 tree
+bat
