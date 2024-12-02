@@ -65,6 +65,7 @@ require("nvim-treesitter.configs").setup({
 		"sql",
 		"c",
 		"cpp",
+		"haskell",
 	},
 	auto_install = false,
 	highlight = { enable = true },
