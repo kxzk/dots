@@ -6,6 +6,7 @@ alias ignorepy="curl https://www.toptal.com/developers/gitignore/api/python,maco
 alias ignorego="curl https://www.toptal.com/developers/gitignore/api/go,macos > .gitignore"
 
 # util
+alias py="python3"
 alias g="git"
 alias gp="git pull"
 alias gbl="git bl"

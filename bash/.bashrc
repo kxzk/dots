@@ -126,6 +126,9 @@ export PATH="$PATH:/opt/nvim"
 export PATH="$PATH:/go/bin"
 export PATH="$PATH:/.atuin/bin"
 
+# haskell
+[ -f "/home/feyd/.ghcup/env" ] && . "/home/feyd/.ghcup/env" # ghcup-env
+
 # adding path for rust
 . "$HOME/.cargo/env"
 
