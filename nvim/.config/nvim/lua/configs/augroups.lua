@@ -22,7 +22,7 @@ end
 
 local autocmds = {
 	_python = {
-		{ "FileType", "python", "nmap <leader>r :20 split term://python3 %<CR>" },
+		{ "FileType", "python", "nmap <leader>r :20 split term://uv run %<CR>" },
 	},
 	_html = {
 		{ "FileType", "html", "nmap <leader>ts :TailwindSort<CR>" },

@@ -4,14 +4,23 @@ g.background = "dark"
 g.do_filetype_lua = 1
 
 -- my variations to the new neovim default colorscheme
-vim.cmd([[highlight Comment guifg=#2c2e33]]) -- comment color
+vim.cmd([[highlight Comment guifg=#fce094]]) -- comment color
 vim.cmd([[highlight LineNr guifg=#2c2e33]]) -- dim line numbers
 vim.cmd([[highlight EndOfBuffer guifg=#14161b]]) -- dim tilde under line number
 vim.cmd([[highlight CursorLine guibg=#1c1d23]])
 vim.cmd([[highlight CursorLineNr guifg=#2c2e33]]) -- brighter cursorline number
 vim.cmd([[highlight MsgArea guifg=#2c2e33]]) -- dim command line/message area
-vim.cmd([[highlight CopilotSuggestion guifg=#2c2e33]]) -- dim command line/message area
--- vim.cmd([[highlight VertSplit guifg=#EBCB8B gui=None guibg=None]]) -- remove bad split coloring
+vim.cmd([[highlight CopilotSuggestion guifg=#2c2e33]])
+vim.cmd([[highlight WinSeparator guifg=#14161b]]) -- dim window separator
+vim.cmd([[highlight TelescopeBorder guifg=#2c2e33]]) -- dim telescope border
+vim.cmd([[highlight DiagnosticError guifg=#FFC0B9]]) -- error color
+vim.cmd([[highlight DiagnosticWarn guifg=#FCE094]]) -- warning color
+vim.cmd([[highlight DiagnosticInfo guifg=#b4f6c0]]) -- info color
+vim.cmd([[highlight DiagnosticHint guifg=#A6DBFF]]) -- hint color
+vim.cmd([[highlight DiagnosticVirtualTextError guifg=#4f5258]]) -- dim error color
+vim.cmd([[highlight DiagnosticVirtualTextWarn guifg=#4f5258]]) -- dim warning color
+vim.cmd([[highlight DiagnosticVirtualTextInfo guifg=#4f5258]]) -- dim info color
+vim.cmd([[highlight DiagnosticVirtualTextHint guifg=#4f5258]]) -- dim hint color
 
 g.python3_host_prog = "/usr/bin/python3"
 
