@@ -90,4 +90,4 @@ vim.lsp.config("*", {
 	root_markers = { ".git" },
 })
 
-vim.lsp.enable({ "pyright", "gopls", "zls" })
+vim.lsp.enable({ "pyright", "gopls", "zls", "rust-analyzer" })
