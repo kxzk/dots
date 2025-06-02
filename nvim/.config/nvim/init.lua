@@ -23,6 +23,7 @@ require("configs.statusline")
 require("configs.options")
 require("configs.augroups")
 require("configs.globals")
+require("configs.colo")
 
 pcall(require("telescope").load_extension, "fzf")
 
@@ -39,7 +40,7 @@ vim.diagnostic.config({
 	},
 })
 
--- configure specific sign symbols
+-- sign symbols --
 local signs = { Error = "• ", Warn = "‣ ", Hint = "• ", Info = "• " }
 
 for type, icon in pairs(signs) do
@@ -65,7 +66,7 @@ require("nvim-treesitter.configs").setup({
 		"sql",
 		"c",
 		"cpp",
-		"haskell",
+		-- "haskell",
 	},
 	auto_install = false,
 	highlight = { enable = true },
@@ -90,4 +91,4 @@ vim.lsp.config("*", {
 	root_markers = { ".git" },
 })
 
-vim.lsp.enable({ "pyright", "gopls", "zls", "rust-analyzer" })
+vim.lsp.enable({ "pyrefly", "gopls", "ruby-lsp", "zls" })
