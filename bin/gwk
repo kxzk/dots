@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $(basename "$0") <branch-name>"
+  exit 1
+fi
+branch=$1
+
+repo_root=$(git rev-parse --show-toplevel)
+target_dir="$(dirname "$repo_root")/$branch"
+
+git -C "$repo_root" worktree add -B "$branch" "$target_dir" origin/"$branch" 2>/dev/null \
+  || git -C "$repo_root" worktree add -b "$branch" "$target_dir"
+
+cd "$target_dir"
+exec "${SHELL:-/bin/bash}"
