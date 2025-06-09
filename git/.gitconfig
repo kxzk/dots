@@ -23,6 +23,7 @@
 	prune = true
 [alias]
 	co = checkout
+  wk = worktree
 	br = branch
 	bd = branch -D
 	bl = "branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate"
