@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+
+MEM_MASTER=${MEM_MASTER:-/home/feyd/dots/bin/agent.mem}
+MEM_FILE=${MEM_FILE:-./agent.mem}
+LOCKFD=200          # file-descriptor used by flock(1)
+
+usage() {
+cat <<EOF
+mem – manage agent task / note memory
+
+[usage]
+  mem -a "<task text>"           add new task
+  mem -n "<note text>"           add new note
+  mem -l task|note|done          list entries by type
+  mem -d <id>                    mark task <id> as done
+  mem -r <id>                    remove note <id>
+  mem -s <pattern>               search open tasks for text
+  mem -h                         show this help
+
+[details]
+  • ids auto-increment from the highest existing id per type
+  • all writes are wrapped in flock(1) so concurrent agents cannot corrupt
+    the file
+
+[examples]
+  mem -a "write allocator benchmark"
+  mem -d 7
+  mem -l task
+  mem -s zig
+EOF
+}
+
+_next_id() {
+  local prefix="$1"
+  local max
+  max=$(grep "^${prefix}:" "$MEM_FILE" 2>/dev/null | awk -F: '{print $2}' | sort -n | tail -1)
+
+  if [ -z "$max" ]; then
+    echo 1
+  else
+    echo $((max + 1))
+  fi
+}
+
+_safe_append() {
+  exec {LOCKFD}>>"$MEM_FILE"
+  flock -e "$LOCKFD"                  # exclusive lock
+  printf '%s\n' "$1" >>"$MEM_FILE"
+  flock -u "$LOCKFD"
+}
+
+[ "$#" -eq 0 ] && { usage; exit 1; }
+
+while getopts ":a:n:l:d:r:s:gh" opt; do
+  case $opt in
+    a) ACTION=add_task   ; TEXT="$OPTARG"  ;;
+    n) ACTION=add_note   ; TEXT="$OPTARG"  ;;
+    l) ACTION=list       ; LISTTYPE="$OPTARG" ;;
+    d) ACTION=mark_done  ; ID="$OPTARG"   ;;
+    r) ACTION=remove_note; ID="$OPTARG"   ;;
+    s) ACTION=search     ; PATTERN="$OPTARG" ;;
+    g) ACTION=get_master ;;
+    h) usage; exit 0     ;;
+    \?) echo "mem: unknown option -$OPTARG" >&2; usage; exit 1 ;;
+    :)  echo "mem: option -$OPTARG requires an argument" >&2; usage; exit 1 ;;
+  esac
+done
+shift $((OPTIND-1))
+
+case $ACTION in
+  add_task)
+      ID=$(_next_id task)
+      _safe_append "task:$ID: $TEXT"
+      echo "added task $ID" ;;
+  add_note)
+      ID=$(_next_id note)
+      _safe_append "note:$ID: $TEXT"
+      echo "added note $ID" ;;
+  list)
+      grep "^${LISTTYPE}:" "$MEM_FILE" || true ;;
+  mark_done)
+      sed -i "/^task:${ID}:/ s/^task:/done:/" "$MEM_FILE"
+      echo "task $ID marked done" ;;
+  remove_note)
+      sed -i "/^note:${ID}:/d" "$MEM_FILE"
+      echo "note $ID removed" ;;
+  search)
+      grep '^task:' "$MEM_FILE" | grep -i "$PATTERN" ;;
+  get_master)
+      if [ ! -f "$MEM_MASTER" ]; then
+          echo "mem: master file not found at $MEM_MASTER" >&2; exit 1
+      fi
+      cp -f "$MEM_MASTER" "$MEM_FILE"    # -f = overwrite silently
+      echo "copied $MEM_MASTER → $MEM_FILE"
+      ;;
+  *) usage; exit 1 ;;
+esac
