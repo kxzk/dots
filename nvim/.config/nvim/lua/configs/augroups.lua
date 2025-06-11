@@ -21,6 +21,9 @@ function CompileRunCpp()
 end
 
 local autocmds = {
+	_ruby = {
+		{ "FileType", "ruby", "nmap <leader>r :20 split term://ruby %<CR>" },
+	},
 	_python = {
 		{ "FileType", "python", "nmap <leader>r :20 split term://uv run %<CR>" },
 	},
@@ -34,10 +37,16 @@ local autocmds = {
 		{ "FileType", "rust", "nmap <leader>r :20 split term://cargo run<CR>" },
 		{ "FileType", "rust", "nmap <leader>t :20 split term://cargo test<CR>" },
 	},
+	_zig = {
+		{ "FileType", "zig", "nmap <leader>r :20 split term://zig run %<CR>" },
+		{ "FileType", "zig", "nmap <leader>t :20 split term://zig test %<CR>" },
+	},
 	_templates = {
 		{ "BufNewFile", "*.py", "0r ~/.config/nvim/templates/py.skeleton" },
 		{ "BufNewFile", "*.go", "0r ~/.config/nvim/templates/go.skeleton" },
 		{ "BufNewFile", "*.todo", "0r ~/.config/nvim/templates/todo.skeleton" },
+		{ "BufNewFile", "*.c", "0r ~/.config/nvim/templates/c.skeleton" },
+		{ "BufNewFile", "*.cpp", "0r ~/.config/nvim/templates/cpp.skeleton" },
 	},
 	_terminal = {
 		{ "TermOpen", "*", "setlocal nonumber norelativenumber" },
