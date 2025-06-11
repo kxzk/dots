@@ -14,7 +14,7 @@ end
 map("n", "<leader>w", ":w!<cr>")
 map("n", "<leader>q", ":q!<cr>")
 
--- fast searching
+-- fast substitutions
 map("n", "<leader>s", ":%s/")
 
 -- copy file to clipboard
@@ -42,3 +42,7 @@ map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>")
 map("n", "<leader>fc", "<cmd>Telescope git_commits<cr>")
 map("n", "<leader>fb", "<cmd>Telescope git_bcommits<cr>")
+
+-- codecompanion
+map("n", "<leader>cc", "<cmd>CodeCompanionChat<cr>")
+map("v", "<leader>a", "<cmd>CodeCompanion<cr>")
