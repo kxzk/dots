@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# print 16 basic colors (8 normal + 8 bright)
+echo "Basic 16 Colors:"
+for i in {0..7}; do
+    echo -en "\e[3${i}m████\e[0m "
+done
+echo
+
+for i in {0..7}; do
+    echo -en "\e[9${i}m████\e[0m "
+done
+echo -e "\n"
+
+# print 256 colors
+echo "256 Color Palette:"
+for i in {0..15}; do
+    for j in {0..15}; do
+        code=$((i * 16 + j))
+        printf "\e[38;5;%dm%3d\e[0m " $code $code
+    done
+    echo
+done
+
+echo -e "\n24-bit True Color (RGB):"
+# rgb gradient example
+for r in {0..255..51}; do
+    for g in {0..255..51}; do
+        for b in {0..255..51}; do
+            printf "\e[38;2;%d;%d;%dm█\e[0m" $r $g $b
+        done
+    done
+    echo
+done
+
+echo -e "\nBackground Colors (Basic 16):"
+for i in {0..7}; do
+    echo -en "\e[4${i}m    \e[0m "
+done
+echo
+
+for i in {0..7}; do
+    echo -en "\e[10${i}m    \e[0m "
+done
+echo
