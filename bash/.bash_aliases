@@ -28,3 +28,6 @@ alias dativ="deactivate"
 alias h="cd Desktop"
 alias cldp="claude --dangerously-skip-permissions"
 alias cldpc="claude --dangerously-skip-permissions --continue"
+alias agent="codex -q -a full-auto"
+
+mk() { mkdir -p "$1" && cd "$1"; }
