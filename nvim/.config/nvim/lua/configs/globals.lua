@@ -3,7 +3,7 @@ local g = vim.g
 -- make it stop yelling
 vim.deprecate = function() end
 
-vim.cmd("colorscheme melange")
+vim.cmd("colorscheme default")
 vim.opt.background = "light"
 g.do_filetype_lua = 1
 

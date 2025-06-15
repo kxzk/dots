@@ -1,4 +1,4 @@
--- my variations to the new neovim default colorscheme
+-- [DARK VARIANT]
 -- vim.api.nvim_set_hl(0, "Comment", { fg = "#FCE094", italic = true })
 -- vim.api.nvim_set_hl(0, "Comment", { fg = "#5C6773", italic = true })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#14161b" })
@@ -18,10 +18,21 @@
 -- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "#1c1d23", fg = "#2C2E33" })
 -- vim.api.nvim_set_hl(0, "SignColumn", { fg = "#2c2e33", bg = "#1c1d23" })
 
--- melange light colorscheme settings
-vim.api.nvim_set_hl(0, "Comment", { fg = "#ccb9ac", italic = true })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#7892bd" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#ccb9ac" })
-vim.api.nvim_set_hl(0, "MsgArea", { fg = "#ccb9ac" })
-vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#7892bd" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#e9e1db" })
+-- [LIGHT VARIANT]
+-- vim.api.nvim_set_hl(0, "Comment", { fg = "#FCE094", italic = true })
+vim.api.nvim_set_hl(0, "Comment", { fg = "#5C6773", italic = true })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#eef1fb" })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#c4c6cd" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#4f5258" })
+vim.api.nvim_set_hl(0, "MsgArea", { fg = "#9b9ea4" })
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#14161b" })
+vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#2c2e33" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#9b9ea4" })
+vim.api.nvim_set_hl(0, "DiagnosticError", { bg = "#c4c6cd" })
+vim.api.nvim_set_hl(0, "DiagnosticWarn", { bg = "#c4c6cd" })
+vim.api.nvim_set_hl(0, "DiagnosticInfo", { bg = "#c4c6cd" })
+vim.api.nvim_set_hl(0, "DiagnosticHint", { bg = "#c4c6cd" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "#c4c6cd", fg = "#2C2E33" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "#c4c6cd", fg = "#FFB454" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "#c4c6cd", fg = "#A3D9FF" })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "#c4c6cd", fg = "#2C2E33" })
