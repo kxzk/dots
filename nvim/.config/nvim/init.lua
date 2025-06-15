@@ -19,11 +19,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", { ui = { border = "rounded" } })
 
 require("configs.keymaps")
-require("configs.statusline")
 require("configs.options")
 require("configs.augroups")
 require("configs.globals")
 require("configs.colo")
+require("configs.statusline")
 
 pcall(require("telescope").load_extension, "fzf")
 
@@ -91,4 +91,4 @@ vim.lsp.config("*", {
 	root_markers = { ".git" },
 })
 
-vim.lsp.enable({ "pyrefly", "gopls", "ruby-lsp", "zls" })
+vim.lsp.enable({ "pyrefly", "gopls", "ruby-lsp", "zls", "rust-analyzer" })

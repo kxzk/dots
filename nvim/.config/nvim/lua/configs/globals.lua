@@ -3,12 +3,11 @@ local g = vim.g
 -- make it stop yelling
 vim.deprecate = function() end
 
-g.background = "dark"
+vim.cmd("colorscheme melange")
+vim.opt.background = "light"
 g.do_filetype_lua = 1
 
 g.python3_host_prog = "/usr/bin/python3"
-
--- g.python_recommended_style = 0
 
 -- netrw cheatsheet --
 -- - -> up directory

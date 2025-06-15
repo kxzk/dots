@@ -1,7 +1,1 @@
-Can you create a Python skeleton for the leetcode problem: $ARGUMENTS
-
-- Pleaes create a skeleton
-- NO hints
-- NO answers
-- Include test cases
-- Use type hints
+can you createa a python skeleton for $ARGUMENTS (NO hints or answers) and include test cases
