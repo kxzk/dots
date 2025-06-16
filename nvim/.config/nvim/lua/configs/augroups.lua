@@ -21,7 +21,6 @@ function CompileRunCpp()
 end
 
 local autocmds = {
-	_markdown = { "FileType", "markdown", "set spell spelllang=en_us" },
 	_ruby = {
 		{ "FileType", "ruby", "nmap <leader>r :20 split term://ruby %<CR>" },
 	},
