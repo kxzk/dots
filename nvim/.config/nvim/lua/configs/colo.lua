@@ -21,7 +21,7 @@
 -- [LIGHT VARIANT]
 -- vim.api.nvim_set_hl(0, "Comment", { fg = "#FCE094", italic = true })
 vim.api.nvim_set_hl(0, "Comment", { fg = "#5C6773", italic = true })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#eef1fb" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#e0e2ea" })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#c4c6cd" })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#4f5258" })
 vim.api.nvim_set_hl(0, "MsgArea", { fg = "#9b9ea4" })
