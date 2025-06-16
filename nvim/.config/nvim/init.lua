@@ -30,7 +30,7 @@ pcall(require("telescope").load_extension, "fzf")
 -- signs --
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_lines = { current_line = true },
 	signs = true,
 	underline = false,
 	update_in_insert = false,
