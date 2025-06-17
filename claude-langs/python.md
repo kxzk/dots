@@ -11,6 +11,7 @@
 - black *.py: format python files using black
 - ruff check: check python files using ruff
 - pyrefly check: check python files using pyrefly
+- uvx ty check: check python files using uvx ty
 
 # Workflow
 - format the code with black after making a series of code changes
