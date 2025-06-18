@@ -62,7 +62,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Display the content using batcat
-batcat --style=plain --theme=gruvbox-light --paging=never --language=markdown "$temp_file"
+batcat --style=plain --theme=OneHalfLight --paging=never --language=markdown "$temp_file"
 
 # Remove the temporary file
 rm -f "$temp_file"
