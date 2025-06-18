@@ -1,0 +1,139 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.8"
+# dependencies = [
+#     "rich>=13.0.0",
+# ]
+# ///
+
+import subprocess
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import Dict
+
+from rich.console import Console
+from rich.live import Live
+from rich.table import Table
+
+
+class GitRepoMonitor:
+    def __init__(self, repo_path: Path):
+        self.repo_path = repo_path
+        self.console = Console()
+        self.file_times: Dict[str, datetime] = {}
+
+    def get_git_status(self) -> Dict[str, str]:
+        """get git status for modified, deleted, and untracked files only"""
+        try:
+            result = subprocess.run(
+                ["git", "status", "--porcelain"],
+                cwd=self.repo_path,
+                capture_output=True,
+                text=True,
+            )
+
+            if result.returncode != 0:
+                return {}
+
+            status_map = {}
+            for line in result.stdout.strip().split("\n"):
+                if line:
+                    fields = line.split()
+                    status = fields[0] if fields else ""
+                    filepath = fields[1] if len(fields) > 1 else ""
+                    # only include modified, deleted, and untracked
+                    if status in ["M", "D", "??"]:
+                        status_map[filepath] = status
+
+            return status_map
+        except Exception:
+            return {}
+
+    def get_file_mod_time(self, filepath: str) -> datetime:
+        """get modification time for a specific file"""
+        full_path = self.repo_path / filepath
+        if full_path.exists():
+            return datetime.fromtimestamp(full_path.stat().st_mtime)
+        return datetime.now()
+
+    def format_relative_time(self, dt: datetime) -> str:
+        """format datetime as relative time"""
+        now = datetime.now()
+        diff = now - dt
+        seconds = diff.total_seconds()
+
+        if seconds < 60:
+            return f"{int(seconds)}s"
+        elif seconds < 3600:
+            return f"{int(seconds / 60)}m"
+        elif seconds < 86400:
+            return f"{int(seconds / 3600)}h"
+        else:
+            return f"{int(seconds / 86400)}d"
+
+    def create_dashboard(self) -> Table:
+        """create the dashboard display"""
+        git_status = self.get_git_status()
+
+        # create table
+        table = Table(show_header=True, header_style="bold black")
+        table.add_column("status", style="yellow", width=10)
+        table.add_column("file", style="black")
+        table.add_column("updated", style="black", width=10)
+
+        if not git_status:
+            table.add_row("[dim]Clean[/dim]", "[dim]No changes[/dim]", "[dim]-[/dim]")
+        else:
+            for filepath in sorted(git_status.keys()):
+                status = git_status[filepath]
+
+                # simple status labels
+                if status == "M":
+                    status_label = "[yellow]Modified[/yellow]"
+                elif status == "D":
+                    status_label = "[red]Deleted[/red]"
+                elif status == "??":
+                    status_label = "[blue]Untracked[/blue]"
+                else:
+                    continue
+
+                # get modification time
+                if status != "D":  # deleted files don't exist
+                    mod_time = self.get_file_mod_time(filepath)
+                    time_str = self.format_relative_time(mod_time)
+                else:
+                    time_str = "-"
+
+                table.add_row(status_label, filepath, time_str)
+
+        return table
+
+    def run(self):
+        """run the monitor"""
+        try:
+            with Live(
+                self.create_dashboard(), refresh_per_second=0.1, console=self.console
+            ) as live:
+                while True:
+                    time.sleep(10)  # update every 10 seconds
+                    live.update(self.create_dashboard())
+        except KeyboardInterrupt:
+            self.console.print("\n")
+
+
+def main():
+    repo_path = Path.cwd()
+
+    # check if it's a git repo
+    if not (repo_path / ".git").exists():
+        console = Console()
+        console.print("[red]Not a git repository[/red]")
+        return
+
+    monitor = GitRepoMonitor(repo_path)
+    monitor.run()
+
+
+if __name__ == "__main__":
+    main()
