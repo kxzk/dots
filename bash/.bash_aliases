@@ -6,7 +6,6 @@ alias ignorepy="curl https://www.toptal.com/developers/gitignore/api/python,maco
 alias ignorego="curl https://www.toptal.com/developers/gitignore/api/go,macos > .gitignore"
 
 # util
-alias py="python3"
 alias g="git"
 alias gp="git pull"
 alias gbl="git bl"
@@ -26,8 +25,8 @@ alias D="duckdb"
 alias ativ="source .venv/bin/activate"
 alias dativ="deactivate"
 alias h="cd Desktop"
-alias cldp="claude --dangerously-skip-permissions"
-alias cldpc="claude --dangerously-skip-permissions --continue"
 alias agent="codex -q -a full-auto"
 
 mk() { mkdir -p "$1" && cd "$1"; }
+
+alias cl="CLAUBBIT=1 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 ENABLE_BACKGROUND_TASKS=1 $HOME/.claude/local/claude --dangerously-skip-permissions"
