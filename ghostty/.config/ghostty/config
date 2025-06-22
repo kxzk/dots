@@ -5,10 +5,10 @@ font-family-bold-italic = "Berkeley Mono Bold Oblique"
 
 font-size = 15
 
-theme = "NvimLight"
+theme = "GruvboxDark"
 
 cursor-text = "#000000"
-cursor-color = "#ec71e5"
+cursor-color = "#d3869b"
 cursor-style = block
 cursor-style-blink = false
 
