@@ -1,9 +1,9 @@
 -- [gruvbox dark]
-vim.api.nvim_set_hl(0, "Comment", { fg = "#3c3836", italic = true })
-vim.api.nvim_set_hl(0, "CursorLine", { bg = default })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#3c3836", bg = default })
+vim.api.nvim_set_hl(0, "Comment", { fg = "#504945", italic = true })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#32302f" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#504945", bg = "#32302f" })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#3c3836" })
-vim.api.nvim_set_hl(0, "MsgArea", { fg = "#282828" })
+vim.api.nvim_set_hl(0, "MsgArea", { fg = "#32302f" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#282828" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "#282828" })
 vim.api.nvim_set_hl(0, "TelescopeNormal", { fg = "#3c3836" })
