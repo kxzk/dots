@@ -35,6 +35,8 @@ map("n", "Q", "!!$SHELL<cr>")
 
 -- gitsigns
 map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>")
+map("n", "<leader>sh", "<cmd>Gitsigns stage_hunk<cr>")
+map("v", "<leader>sh", "<cmd>Gitsigns stage_hunk<cr>")
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
