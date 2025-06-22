@@ -23,9 +23,6 @@ map("n", "<leader>p", ":%w !pbcopy<cr><cr>")
 -- clear search highlighting
 map("n", "<BS>", ":nohlsearch<cr>")
 
--- dash app plugin
-map("n", "<leader>d", "<Plug>DashSearch<cr>")
-
 -- netrw -> nerdtree-esque
 map("n", "<leader>0", ":Vexplore<cr>")
 
