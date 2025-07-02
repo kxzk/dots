@@ -10,6 +10,16 @@ local function create_augroups(definitions)
 	end
 end
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "gitcommit", "markdown" },
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_us"
+		vim.opt_local.relativenumber = true
+		-- vim.opt_local.textwidth = 72
+	end,
+})
+
 function CompileRunC()
 	local filename = vim.fn.expand("%:t:r")
 	vim.cmd(string.format("!gcc %s -o %s && ./%s", vim.fn.expand("%"), filename, filename))
@@ -21,6 +31,12 @@ function CompileRunCpp()
 end
 
 local autocmds = {
+	_sql = {
+		{ "FileType", "sql", "colorscheme retrobox" },
+		{ "FileType", "sql", "set background=dark" },
+		-- { "FileType", "sql", "nmap <leader>r :20 split term://duckdb < %<CR>" },
+		{ "FileType", "sql", "nmap <leader>t :!sqlfmt %<CR><CR>" },
+	},
 	_ruby = {
 		{ "FileType", "ruby", "nmap <leader>r :20 split term://ruby %<CR>" },
 	},
