@@ -49,20 +49,26 @@ atuin sync
 <br>
 <br>
 
-### install python3.12
+### install python3.13
 
 ```bash
+# add deadsnakes ppa if not already present
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update -y
-sudo apt install python3.12
 
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+# install python 3.13 with development headers and venv support
+sudo apt install python3.13 python3.13-venv python3.13-dev
+
+# configure as default python3 (priority 2 > default system python)
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 2
 sudo update-alternatives --config python3
 
-curl -sS https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3.12 get-pip.py
+# install pip for python 3.13
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3.13 -
 
-# pip3.12 install requests
+# verify installation
+python3 --version
+pip3 --version
 ```
 
 <br>
@@ -168,12 +174,14 @@ sudo npm install -g @fsouza/prettierd
 <br>
 <br>
 
-### stylua/eza
+### rust utils
 
 ```bash
 cargo install zoxide
 cargo install stylua
 cargo install eza
+cargo install glimpse
+cargo install ast-grep --locked
 ```
 
 <br>
@@ -214,3 +222,9 @@ sudo apt install tableplus
 
 <br>
 <br>
+
+### marp
+
+```
+npm install -g @marp-team/marp-cli
+```
