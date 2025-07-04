@@ -1,9 +1,10 @@
-# Cream - Minimalist Ghostty Theme
-# Place in ~/.config/ghostty/themes/cream.conf
+# Commando - Minimalist Ghostty Theme
+# Place in ~/.config/ghostty/themes/commando
 
 # Core colors
 background = #F5F2ED
 foreground = #1A1A1A
+cursor-color = #1A1A1A
 selection-background = #E0D8CC
 selection-foreground = #1A1A1A
 
@@ -13,24 +14,24 @@ palette = 0=#3A3A3A
 palette = 8=#5A5A5A
 
 # Red (1, 9) - Errors and important alerts
-palette = 1=#8B3A3A
-palette = 9=#A04545
+palette = 1=#FF4444
+palette = 9=#FF6666
 
 # Green (2, 10) - Success states and our comment color
 palette = 2=#5F8A5F
 palette = 10=#6B7D6A
 
 # Yellow (3, 11) - Warnings
-palette = 3=#8B6914
-palette = 11=#B8861B
+palette = 3=#FF7700
+palette = 11=#FF9933
 
 # Blue (4, 12) - Info and links
 palette = 4=#4682B4
 palette = 12=#5A96C8
 
-# Magenta (5, 13) - Minimal use
-palette = 5=#705D70
-palette = 13=#8A7A8A
+# Magenta (5, 13) - Purple tones
+palette = 5=#8B7D8B
+palette = 13=#A394A3
 
 # Cyan (6, 14) - Minimal use
 palette = 6=#5D7A7A
