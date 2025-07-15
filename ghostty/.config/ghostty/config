@@ -5,10 +5,8 @@ font-family-bold-italic = "Berkeley Mono Bold Oblique"
 
 font-size = 15
 
-theme = commando
+theme = "tokyonight_moon"
 
-cursor-text = "#000000"
-cursor-color = "#ff7700"
 cursor-style = block
 cursor-style-blink = false
 

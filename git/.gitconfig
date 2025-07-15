@@ -6,7 +6,7 @@
 	editor = nvim
 	pager = delta
 [interactive]
-	diffFilter = delta --color-only --syntax-theme OneHalfLight
+	diffFilter = delta --color-only --syntax-theme Dracula
 [merge]
 	conflictstyle = diff3
 [diff]
