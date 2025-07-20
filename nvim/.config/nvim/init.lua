@@ -22,8 +22,6 @@ require("configs.keymaps")
 require("configs.options")
 require("configs.augroups")
 require("configs.globals")
--- has to be called in this order
-require("commando").setup()
 require("configs.colo")
 require("configs.statusline")
 

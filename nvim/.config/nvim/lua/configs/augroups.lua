@@ -58,6 +58,7 @@ local autocmds = {
 		{ "FileType", "zig", "nmap <leader>t :20 split term://zig test %<CR>" },
 	},
 	_templates = {
+		{ "BufNewFile", "*.prd", "0r ~/.config/nvim/templates/prd.skeleton" },
 		{ "BufNewFile", "*.py", "0r ~/.config/nvim/templates/py.skeleton" },
 		{ "BufNewFile", "*.go", "0r ~/.config/nvim/templates/go.skeleton" },
 		{ "BufNewFile", "*.todo", "0r ~/.config/nvim/templates/todo.skeleton" },

@@ -1,5 +1,17 @@
 return {
 	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			styles = {
+				keywords = { italic = false },
+				functions = { italic = false },
+				variables = { italic = false },
+			},
+		},
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {

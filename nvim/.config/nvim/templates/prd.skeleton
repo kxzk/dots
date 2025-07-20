@@ -1,0 +1,31 @@
+# Feature Name
+
+**What:**
+One sentence - what this does
+
+**Why:**
+Problem it solves in plain terms
+
+## Requirements
+
+**Must Have:**
+-
+
+**Must NOT:**
+-
+
+## Technical Context
+
+**Files/Components:**
+- @
+
+**Key Functions/APIs:**
+-
+
+## Implementation Notes
+
+**Approach:**
+High-level strategy in 2-3 sentences
+
+**Watch out for:**
+Known gotcha or complexity
