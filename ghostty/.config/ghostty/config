@@ -4,7 +4,8 @@ font-family-italic = "Berkeley Mono Oblique"
 font-family-bold-italic = "Berkeley Mono Bold Oblique"
 
 window-title-font-family = "Berkeley Mono"
-split-divider-color = #1a1a1a
+split-divider-color = #222436
+unfocused-split-fill = #1b1d2b
 window-theme = ghostty
 window-decoration = client
 window-new-tab-position = end
@@ -31,7 +32,6 @@ confirm-close-surface = false
 
 # ghostty
 
-keybind = ctrl+a>q=quit
 keybind = ctrl+enter=toggle_maximize
 keybind = ctrl+a>v=select_all
 keybind = ctrl+a>y=copy_to_clipboard
