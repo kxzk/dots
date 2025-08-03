@@ -32,9 +32,10 @@ confirm-close-surface = false
 # ghostty
 
 keybind = ctrl+a>q=quit
-keybind = ctrl+enter=toggle_fullscreen
+keybind = ctrl+enter=toggle_maximize
 keybind = ctrl+a>v=select_all
 keybind = ctrl+a>y=copy_to_clipboard
+keybind = ctrl+a>d=toggle_window_decorations
 
 # tmux-style keybindings - using sequences (prefix model)
 
