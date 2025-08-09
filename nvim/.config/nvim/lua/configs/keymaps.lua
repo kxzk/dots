@@ -32,7 +32,6 @@ map("n", "Q", "!!$SHELL<cr>")
 
 -- gitsigns
 map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>")
-map("n", "<leader>sh", "<cmd>Gitsigns stage_hunk<cr>")
 map("v", "<leader>sh", "<cmd>Gitsigns stage_hunk<cr>")
 
 -- telescope
@@ -44,3 +43,4 @@ map("n", "<leader>fb", "<cmd>Telescope git_bcommits<cr>")
 
 -- copilot disable
 map("n", "<leader>7", "<cmd>Copilot disable<cr>")
+map("n", "<leader>8", "<cmd>Copilot enable<cr>")

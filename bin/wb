@@ -1,0 +1,121 @@
+#!/bin/bash
+
+# wb - Workbench: Git worktree manager
+# Usage: wb <command> [branch-name]
+
+set -euo pipefail
+
+WB_DIR="${WB_DIR:-../workbench}"  # Default worktree location
+MAIN_BRANCH="${MAIN_BRANCH:-main}"  # Override with MAIN_BRANCH=master wb ...
+
+die() { echo "Error: $*" >&2; exit 1; }
+require_git_repo() { git rev-parse --git-dir >/dev/null 2>&1 || die "Not in a git repository"; }
+require_clean_working_tree() {
+    git diff-index --quiet HEAD -- || die "Working tree has uncommitted changes"
+}
+
+wb_create() {
+    local branch_name="$1"
+    [[ -n "$branch_name" ]] || die "Branch name required"
+
+    require_git_repo
+    require_clean_working_tree
+
+    # Ensure we're on main branch
+    local current_branch=$(git branch --show-current)
+    [[ "$current_branch" == "$MAIN_BRANCH" ]] || git checkout "$MAIN_BRANCH"
+
+    # Pull latest changes
+    git pull origin "$MAIN_BRANCH"
+
+    # Create worktree in parallel directory structure
+    local worktree_path="$WB_DIR/$branch_name"
+    git worktree add -b "$branch_name" "$worktree_path"
+
+    echo "Workbench created: $worktree_path"
+    echo "Enter with: cd $worktree_path"
+}
+
+wb_merge() {
+    local branch_name="$1"
+    [[ -n "$branch_name" ]] || die "Branch name required"
+
+    require_git_repo
+
+    local worktree_path="$WB_DIR/$branch_name"
+    [[ -d "$worktree_path" ]] || die "Worktree $worktree_path not found"
+
+    # Check if branch has commits
+    if ! git log "$MAIN_BRANCH..$branch_name" --oneline | head -1 >/dev/null 2>&1; then
+        echo "No commits to merge on $branch_name"
+        wb_remove "$branch_name"
+        return 0
+    fi
+
+    # Switch to main and merge
+    git checkout "$MAIN_BRANCH"
+    git pull origin "$MAIN_BRANCH"  # Ensure we're current
+    git merge "$branch_name" --no-ff -m "Merge worktree: $branch_name"
+
+    # Push merged changes
+    git push origin "$MAIN_BRANCH"
+
+    # Cleanup
+    git worktree remove "$worktree_path"
+    git branch -d "$branch_name"
+
+    echo "Merged and cleaned up: $branch_name"
+}
+
+wb_remove() {
+    local branch_name="$1"
+    [[ -n "$branch_name" ]] || die "Branch name required"
+
+    require_git_repo
+
+    local worktree_path="$WB_DIR/$branch_name"
+    [[ -d "$worktree_path" ]] || die "Worktree $worktree_path not found"
+
+    git worktree remove "$worktree_path"
+    git branch -D "$branch_name"  # Force delete
+
+    echo "Removed workbench: $branch_name"
+}
+
+wb_list() {
+    require_git_repo
+    echo "Active workbenches:"
+    git worktree list | grep -E "$WB_DIR" || echo "None"
+}
+
+wb_help() {
+    cat << 'EOF'
+wb - Workbench: Git worktree manager
+
+Commands:
+  create <branch>  Create new workbench (worktree + branch)
+  merge <branch>   Merge workbench back to main and cleanup
+  remove <branch>  Remove workbench without merging
+  list             Show active workbenches
+  help             Show this help
+
+Environment:
+  WB_DIR          Worktree location (default: ../wb)
+  MAIN_BRANCH     Main branch name (default: main)
+
+Examples:
+  wb create feature-auth
+  wb merge feature-auth
+  WB_DIR=~/workbenches wb create hotfix
+EOF
+}
+
+# Command dispatch
+case "${1:-help}" in
+    create) wb_create "${2:-}" ;;
+    merge)  wb_merge "${2:-}" ;;
+    remove) wb_remove "${2:-}" ;;
+    list)   wb_list ;;
+    help|--help|-h) wb_help ;;
+    *) die "Unknown command: $1. Use 'wb help' for usage." ;;
+esac

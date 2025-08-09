@@ -40,8 +40,7 @@ response=$(curl -s https://api.openai.com/v1/chat/completions \
     -H "Authorization: Bearer $OPENAI_API_KEY" \
     -d "{
         \"model\": \"gpt-4.1-nano-2025-04-14\",
-        \"messages\": [{\"role\": \"user\", \"content\": \"${prompt//\"/\\\"}\"}],
-        \"temperature\": 0.0
+        \"messages\": [{\"role\": \"user\", \"content\": \"${prompt//\"/\\\"}\"}]
     }")
 
 # Check if curl was successful
@@ -62,7 +61,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Display the content using batcat
-batcat --style=plain --theme=Dracula --paging=never --language=markdown "$temp_file"
+batcat --style=plain --theme=Dracula --language=markdown "$temp_file"
 
 # Remove the temporary file
 rm -f "$temp_file"
