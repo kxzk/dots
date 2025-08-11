@@ -1,5 +1,27 @@
 return {
 	{
+		"dmtrKovalenko/fff.nvim",
+		build = "cargo build --release",
+		opts = {
+			prompt = " ",
+			keymaps = {
+				close = "<C-c>",
+			},
+			icons = {
+				enabled = false,
+			},
+		},
+		keys = {
+			{
+				"ff",
+				function()
+					require("fff").find_files()
+				end,
+				desc = "Open file picker",
+			},
+		},
+	},
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
@@ -126,7 +148,7 @@ return {
 				lua = { "stylua" },
 				go = { "goimports", "gofmt", "golines" },
 				cpp = { "clang-format" },
-				python = { "isort", "black" },
+				python = { "ruff_organize_imports", "ruff_format" },
 				-- javascript = { "prettierd" },
 				html = { "prettierd" },
 				fish = { "fish_indent" },
