@@ -29,7 +29,7 @@ for cmd in curl jq batcat; do
 done
 
 # Combine all arguments into a single prompt string
-prompt="$*"
+prompt="$* RESPOND IN MARKDOWN"
 
 # Create a temporary file
 temp_file=$(mktemp) || { echo "Failed to create temp file"; exit 1; }
@@ -39,7 +39,8 @@ response=$(curl -s https://api.openai.com/v1/chat/completions \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $OPENAI_API_KEY" \
     -d "{
-        \"model\": \"gpt-4.1-nano-2025-04-14\",
+        \"model\": \"gpt-5-nano-2025-08-07\",
+        \"reasoning_effort\": \"low\",
         \"messages\": [{\"role\": \"user\", \"content\": \"${prompt//\"/\\\"}\"}]
     }")
 
