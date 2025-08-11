@@ -29,5 +29,6 @@ alias agent="codex -q -a full-auto"
 
 mk() { mkdir -p "$1" && cd "$1"; }
 
-alias claude="$HOME/.claude/local/claude"
-alias cl="CLAUBBIT=1 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 ENABLE_BACKGROUND_TASKS=1 $HOME/.claude/local/claude --dangerously-skip-permissions --disallowedTools NotebookEdit,NotebookWrite"
+alias claude="$HOME/.local/bin/claude"
+alias cl="CLAUBBIT=1 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 ENABLE_BACKGROUND_TASKS=1 $HOME/.local/bin/claude --disallowedTools NotebookEdit,NotebookWrite"
+alias cldp="CLAUBBIT=1 CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 ENABLE_BACKGROUND_TASKS=1 $HOME/.local/bin/claude --dangerously-skip-permissions --disallowedTools NotebookEdit,NotebookWrite"
