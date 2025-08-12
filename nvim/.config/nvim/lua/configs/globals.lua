@@ -3,8 +3,8 @@ local g = vim.g
 -- make it stop yelling
 vim.deprecate = function() end
 
-vim.cmd("colorscheme tokyonight")
-vim.opt.background = "dark"
+vim.cmd("colorscheme e-ink")
+vim.opt.background = "light"
 g.do_filetype_lua = 1
 
 g.python3_host_prog = "/usr/bin/python3"
