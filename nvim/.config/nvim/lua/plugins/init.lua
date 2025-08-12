@@ -1,5 +1,8 @@
 return {
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+	},
+	{
 		"dmtrKovalenko/fff.nvim",
 		build = "cargo build --release",
 		opts = {
