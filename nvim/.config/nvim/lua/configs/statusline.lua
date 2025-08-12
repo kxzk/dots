@@ -4,7 +4,7 @@ local function file_path()
 end
 
 local function hl(group, fg, bg)
-	vim.cmd("highlight " .. group .. " guifg=" .. fg .. " guibg=" .. bg)
+	vim.cmd("highlight " .. group .. " guifg=" .. fg .. " guibg=" .. bg .. " gui=None")
 end
 
 hl("StatusColor", "#aeaeae", "#c2c2c2")
