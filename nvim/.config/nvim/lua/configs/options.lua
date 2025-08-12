@@ -43,6 +43,7 @@ opt.expandtab = true -- spaces instead of tabs
 opt.shiftwidth = 2 -- shift 4 spaces when tab
 opt.tabstop = 2 -- 1 tab == 4 spaces
 opt.smartindent = true
+-- opt.autoindent = true
 opt.shiftround = true -- round indent to multiple of shiftwidth
 
 -- [[ PERF ]] --

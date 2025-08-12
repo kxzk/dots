@@ -66,12 +66,11 @@ require("nvim-treesitter.configs").setup({
 		"sql",
 		"c",
 		"cpp",
-		"ruby",
 		"zig",
 	},
 	auto_install = true,
 	highlight = { enable = true },
-	indent = { enable = false },
+	indent = { enable = true },
 })
 
 -- lsp --
