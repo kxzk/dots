@@ -1,4 +1,4 @@
--- vim.api.nvim_set_hl(0, "@comment", { italic = true })
+vim.api.nvim_set_hl(0, "@comment", { fg = "#3d5a1e", bg = "#f4fce3", italic = true })
 vim.api.nvim_set_hl(0, "MsgArea", { fg = "#a4a4a4" })
 -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#262839" })
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#ecf5ed" })
