@@ -26,5 +26,10 @@
     "DISABLE_COST_WARNINGS": 1,
     "DISABLE_TELEMETRY": 1,
     "MAX_THINKING_TOKENS": 32000
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-script.sh",
+    "padding": 0
   }
 }
