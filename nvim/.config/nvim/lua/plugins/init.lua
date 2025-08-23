@@ -146,6 +146,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				go = { "goimports", "gofmt", "golines" },
+				c = { "clang-format" },
 				cpp = { "clang-format" },
 				python = { "ruff_organize_imports", "ruff_format" },
 				-- javascript = { "prettierd" },
