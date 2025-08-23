@@ -4,7 +4,7 @@ local g = vim.g
 vim.deprecate = function() end
 
 vim.cmd("colorscheme e-ink")
-vim.opt.background = "light"
+vim.opt.background = "dark"
 g.do_filetype_lua = 1
 
 g.python3_host_prog = "/usr/bin/python3"
