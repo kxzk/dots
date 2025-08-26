@@ -1,10 +1,13 @@
 return {
 	{
-		"e-ink-colorscheme/e-ink.nvim",
-		priority = 1000,
+		"navarasu/onedark.nvim",
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			require("e-ink").setup()
-			vim.cmd.colorscheme("e-ink")
+			require("onedark").setup({
+				style = "dark",
+			})
+			-- Enable theme
+			require("onedark").load()
 		end,
 	},
 	{
